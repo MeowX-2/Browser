@@ -1,2 +1,2 @@
-# Shows time and date only
+# Shows time and date 
 Made for personal usage.
