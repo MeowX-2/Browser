@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en", lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing </title>
+    <style>
+        body {
+            font-family: monospace, arial, noto-sans, ubuntu-mono,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0e0e0e; /* Dark background color */
+            color: #fff;
+        }
+
+        #widget-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 128, 255, 0.8); /* Blue glowing effect */
+        }
+
+        h1 {
+            color: rgb(0, 55, 255); /* Blue color for the heading */
+        }
+
+        #datetime {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        /* Add a bit of animation */
+        @keyframes glow {
+            0% { box-shadow: 0 0 20px rgba(0, 128, 255, 0.8); }
+            50% { box-shadow: 0 0 40px rgba(0, 128, 255, 0.9); }
+            100% { box-shadow: 0 0 20px rgba(0, 128, 255, 0.8); }
+        }
+
+        #widget-container {
+            animation: glow 2s infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="widget-container">
+        <h1>You are what you do, not what you say you'll do</h1>
+        <p id="datetime"></p>
+    </div>
+
+    <script>
+        function updateDateTime() {
+            var now = new Date();
+            var date = now.toDateString();
+            var time = now.toLocaleTimeString();
+
+            document.getElementById('datetime').innerHTML = time + '<br>' + date;
+        }
+
+        // Update date and time every second
+        setInterval(updateDateTime, 1000);
+
+        // Initial update
+        updateDateTime();
+    </script>
+
+</body>
+</html>
